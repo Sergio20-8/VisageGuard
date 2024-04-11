@@ -1,0 +1,8 @@
+# ignore virtualenv
+myenv/
+
+# ignore __pycache__
+**/__pycache__/
+
+# ignore captured_photos 
+captured_photos/
