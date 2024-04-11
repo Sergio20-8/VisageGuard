@@ -3,20 +3,19 @@ from FaceCapture import FaceCapture
 from FaceRecognition import FaceRecognition
 
 if __name__ == "__main__":
-    face_capture = FaceCapture()
+    fc = FaceCapture()
 
-    while True:
-        print("Presiona:")
-        print("'r' para captura de video.")
-        print("     'q' para liberar la camera")
-        print("     's' para agregar un nuevo rostro")
-        print("'t' para terminar la captura facial")
-        nombre = input("Ingrese el nombre de la persona: ")
-        face_capture.capture_photos(nombre)
-        key = cv2.waitKey(1)
-        if key & 0xFF == ord('x'):
-            FaceCapture.close_camera()
-            break
+    print("Presiona:")
+    print("'r' para registrar un rostro")
+    print("'c' para cancelar")
+
+    tecla = input(">>> ")
+ 
+    fc.capture_photos(tecla) 
+           
+            
+
+
         
 
     #recognizer = FaceRecognition()S
