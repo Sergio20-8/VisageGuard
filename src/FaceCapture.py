@@ -28,17 +28,17 @@ class FaceCapture:
 
     def capture_photos(self, tecla):
 
-        nombre = input("Registre el nombre: ") 
+        carnet = input("Registre el carnet: ") 
 
         if tecla == "r":
                 
-            folder_name = self.generate_folder_name()
+            folder_name = carnet
             folder_path = os.path.join('captured_photos', folder_name)                
             os.makedirs(folder_path)
 
             capture_count = 0
 
-            while capture_count < 10:
+            while capture_count < 20:
                 # Leer un frame de la cámara
                 ret, frame = self.cap.read()                
                 # Detectar rostros en el frame usando MTCNN
@@ -51,12 +51,12 @@ class FaceCapture:
                     face_region_grey = cv2.cvtColor(frame[y:y+h, x:x+w], cv2.COLOR_BGR2GRAY)
 
                     # Guardar la región de la cara en la carpeta
-                    photo_path = os.path.join(folder_path, f'{nombre}_{capture_count}.jpg')                        
+                    photo_path = os.path.join(folder_path, f'{carnet}_{capture_count}.jpg')                        
                     cv2.imwrite(photo_path, face_region_grey)
                     print(f"Fotografía {capture_count+1} (cara) guardada como '{photo_path}'.")                        
                     capture_count += 1
                         
-                    cv2.waitKey(10)  # Pequeño retardo para permitir un tiempo de procesamiento mínimo
+                    cv2.waitKey(4)  # Pequeño retardo para permitir un tiempo de procesamiento mínimo
  
                     cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
