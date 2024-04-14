@@ -1,18 +1,14 @@
 import cv2
-from FaceCapture import FaceCapture
-
+import os 
 
 if __name__ == "__main__":
-    fc = FaceCapture()
-
-    print("Presiona:")
-    print("'r' para registrar un rostro")
-    print("'c' para cancelar")
-
-    tecla = input(">>> ")
- 
-    fc.capture_photos(tecla) 
-
- 
     
+    if not os.path.exists("faces"):
+        os.makedirs("faces")
+        print("Nueva carpeta creada: faces")
+
+    if not os.path.exists("photos"):
+        os.makedirs("photos")
+        print("Nueva carpeta creada: photos")
+
  

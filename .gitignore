@@ -4,5 +4,8 @@ myenv/
 # ignore __pycache__
 **/__pycache__/
 
-# ignore captured_photos 
-captured_photos/
+# ignore  photos 
+photos/
+
+# ignore faces
+faces/
