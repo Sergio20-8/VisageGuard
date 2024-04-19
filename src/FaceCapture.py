@@ -2,7 +2,7 @@ import cv2
 import os
 
 # Inicializar la captura de video desde la cámara
-cap = cv2.VideoCapture(1)  # 0 para la cámara predeterminada
+cap = cv2.VideoCapture(0)  # 0 para la cámara predeterminada
 
 # Carpeta donde se guardarán las fotos (fuera de la carpeta src)
 folder_name = "faces/"

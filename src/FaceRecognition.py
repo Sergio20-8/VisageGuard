@@ -14,11 +14,12 @@ for file_name in os.listdir(imageFacesPath):
     face_encodings = face_recognition.face_encodings(image, known_face_locations=[(0, 150, 150, 0)])[0]
  
     faces_Encodings.append(face_encodings)
-    name = file_name.split("_")[0]  # Aquí extraemos la parte antes del guión bajo
+    name = file_name.replace("_", " ").split(".")[0]  # Reemplazar guiones bajos por espacios y eliminar la extensión del archivo
+   
     faces_Names.append(name) 
 
 # Leyendo el video
-cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 # Detector facial
 faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
